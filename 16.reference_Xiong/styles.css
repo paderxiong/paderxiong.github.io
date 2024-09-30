@@ -1,0 +1,37 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif; /* Basic sans-serif font */
+}
+
+.container {
+    position: relative;
+    height: 100%;
+}
+
+.text-box {
+    position: absolute; /* Position it absolutely */
+    top: 20px; /* Distance from the top */
+    left: 20px; /* Distance from the left */
+    background-color: rgba(255, 255, 255, 0.7); /* Slightly transparent */
+    padding: 15px; /* Adjusted padding */
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6); /* Enhanced shadow */
+    text-align: left; /* Align text to the left */
+    max-width: 80%; /* Maximum width */
+    font-size: 20px; /* Font size */
+    font-weight: bold; /* Bold text */
+    color: #333; /* Dark text color for contrast */
+    letter-spacing: 1px; /* Slightly increased letter spacing */
+}
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
