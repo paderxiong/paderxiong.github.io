@@ -1,0 +1,29 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif; /* Basic sans-serif font */
+}
+
+.container {
+    position: relative;
+    height: 100%;
+    cursor: pointer; /* Show pointer cursor to indicate clickable area */
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the whole screen */
+    z-index: -1; /* Behind any other content */
+    transition: opacity 0.5s ease; /* Smooth transition for image change */
+    opacity: 0; /* Start hidden */
+}
+
+.background-image:first-child {
+    opacity: 1; /* Ensure the first image is visible */
+}
