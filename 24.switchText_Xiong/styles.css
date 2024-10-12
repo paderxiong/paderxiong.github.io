@@ -1,0 +1,33 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+#fullscreenImage {
+    position: absolute;
+    top: -20px; /* Shift the image up by 20 pixels */
+    left: 0;
+    width: 100%;
+    height: calc(100% + 20px); /* Increase height to cover the space left by the negative top */
+    object-fit: cover; /* Maintain aspect ratio while covering the screen */
+    cursor: pointer; /* Indicate the image is clickable */
+}
+
+#textBox {
+    position: absolute;
+    bottom: 20px; /* Adjusted position from the bottom */
+    left: 50%; /* Center the box horizontally */
+    transform: translateX(-50%); /* Adjust to truly center the box */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding around text */
+    border-radius: 8px; /* Rounded corners for the text box */
+    font-size: 18px; /* Font size */
+    text-align: center; /* Center text */
+    font-family: 'Patrick Hand', cursive; /* Apply handwritten font */
+}
