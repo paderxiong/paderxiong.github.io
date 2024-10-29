@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: auto; /* Allow scrolling on body */
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    height: 500vh; /* Make the container height large to enable scrolling */
+    position: relative; /* Position relative for absolute children */
+}
+
+.text-box {
+    height: 100vh; /* Each text box takes full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: black; /* Set text color to black for better contrast */
+    background-color: rgba(255, 255, 255, 0.4); /* White transparent background with lower opacity */
+    transition: background 0.5s ease; /* Smooth background transition */
+    position: absolute; /* Position absolute for scrolling effect */
+    width: 100%; /* Full width */
+    border: none; /* Remove outline */
+}
+
+/* Set initial background */
+body {
+    background-image: url('images/image1.jpg');
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent image repeat */
+}
+
+/* Position text boxes */
+.text-box:nth-child(1) { top: 0; }
+.text-box:nth-child(2) { top: 100vh; }
+.text-box:nth-child(3) { top: 200vh; }
+.text-box:nth-child(4) { top: 300vh; }
+.text-box:nth-child(5) { top: 400vh; }
+.text-box:nth-child(6) { top: 500vh; }
+.text-box:nth-child(7) { top: 600vh; }
+.text-box:nth-child(8) { top: 700vh; }
+.text-box:nth-child(9) { top: 800vh; }
+.text-box:nth-child(10) { top: 900vh; }
+.text-box:nth-child(11) { top: 1000vh; }
+.text-box:nth-child(12) { top: 1100vh; }
