@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video and Audio Player</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+    }
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    .controls {
+      z-index: 1;
+      position: absolute;
+      bottom: 30px;
+      display: flex;
+      gap: 20px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px;
+      background-color: #444;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #666;
+    }
+  </style>
+</head>
+<body>
+  <!-- Video element -->
+  <video id="video" loop>
+    <source src="videos/video1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Audio element -->
+  <audio id="audio" loop>
+    <source src="audio/audio1.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Controls -->
+  <div class="controls">
+    <button id="playButton">Play Video and Audio</button>
+    <button id="toggleAudioButton">Toggle Audio</button>
+  </div>
+
+  <script>
+    // Get references to elements
+    const video = document.getElementById('video');
+    const audio = document.getElementById('audio');
+    const playButton = document.getElementById('playButton');
+    const toggleAudioButton = document.getElementById('toggleAudioButton');
+
+    // Audio tracks
+    const audioTracks = [
+      'audio/audio1.mp3',
+      'audio/audio2.mp3'
+    ];
+
+    let currentAudioIndex = 0;  // Keep track of the current audio
+    let audioPosition = 0;      // To remember where the audio last played
+
+    // Play both video and audio when the play button is clicked
+    playButton.addEventListener('click', () => {
+      video.play();
+      audio.play();
+    });
+
+    // Toggle audio between audio1.mp3 and audio2.mp3
+    toggleAudioButton.addEventListener('click', () => {
+      // Save the current audio's last played position
+      audioPosition = audio.currentTime;
+
+      // Change to the next audio track
+      currentAudioIndex = (currentAudioIndex + 1) % audioTracks.length;
+      audio.src = audioTracks[currentAudioIndex];
+      
+      // Wait for the audio to be loaded before playing
+      audio.load();
+      
+      // After the new audio is loaded, set the previous position and play
+      audio.addEventListener('canplaythrough', () => {
+        audio.currentTime = audioPosition;
+        audio.play();
+      });
+    });
+  </script>
+</body>
+</html>
